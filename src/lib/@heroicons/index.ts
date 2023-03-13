@@ -8,8 +8,17 @@ import {
   XMarkIcon as XMarkIconMini,
   InformationCircleIcon as InformationCircleIconMini,
   CheckIcon as CheckIconMini,
+  HomeIcon as HomeIconMini,
+  QuestionMarkCircleIcon as QuestionMarkCircleIconMini,
+  ArrowDownTrayIcon as ArrowDownTrayIconMini,
+  PlusIcon as PlusIconMini,
+  Cog8ToothIcon as Cog8ToothIconMini,
+  ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini, 
+
 } from "@heroicons/react/20/solid";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import { InformationCircleIcon ,HomeIcon as HomeIconOutline, QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
+  XCircleIcon as XCircleIconOutline} from "@heroicons/react/24/outline";
+ 
 
 export {
   ErrorIconMini,
@@ -22,4 +31,12 @@ export {
   InformationCircleIconMini,
   InformationCircleIcon,
   CheckIconMini,
-};
+  HomeIconMini,
+  HomeIconOutline,
+  QuestionMarkCircleIconOutline,
+  ArrowDownTrayIconMini,
+  PlusIconMini,
+  Cog8ToothIconMini,
+  ArrowRightOnRectangleIconMini,
+  XCircleIconOutline
+}
