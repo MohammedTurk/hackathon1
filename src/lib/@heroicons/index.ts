@@ -14,6 +14,8 @@ import {
   PlusIcon as PlusIconMini,
   Cog8ToothIcon as Cog8ToothIconMini,
   ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini,
+  TrashIcon as TrashIconMini,
+  PencilIcon as PencilIconMini,
 } from "@heroicons/react/20/solid";
 import {
   InformationCircleIcon,
@@ -41,4 +43,6 @@ export {
   Cog8ToothIconMini,
   ArrowRightOnRectangleIconMini,
   XCircleIconOutline,
+  TrashIconMini,
+  PencilIconMini,
 };

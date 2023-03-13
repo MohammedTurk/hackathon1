@@ -24,7 +24,7 @@ export const TransferPreview = () => {
         <div className="mt-[-20px] pl-[4px] pr-[4px] ">
           <p className="text-[#8C8C8C] text-[12px]">Transferred to:</p>
           <div className=" flex border-[1px] border-[#BEC2C6] pl-[37px] pr-[37px] pb-[10px] pt-[10px] text-[#151617] text-[14px] rounded-[9px] mt-[4px]	flex-row-reverse	">
-            <span className="h-5 w-5 basis-[26px] flex justify-center items-center pt-[20px] ml-[19px] mr-[-9px] pt-[23px]">
+            <span className="h-5 w-5 basis-[26px] flex justify-center items-center pt-[26px] ml-[19px] mr-[-9px] ">
               <HomeIconMini />
             </span>
             <div className="flex flex-col	items-end">
@@ -69,11 +69,10 @@ export const TransferPreview = () => {
           </p>
         </div>
 
-        <Button className=" cursor-pointer	 w-[100%] mt-[32px] mb-[35px] text[16px] pl-[23px] pr-[23px] mt-[9px]">
+        <Button className=" cursor-pointer w-[100%] mt-[20px] mb-[35px] text[16px] pl-[23px] pr-[23px] ">
           Confirm
         </Button>
       </div>
     </Card>
   );
 };
-export default TransferPreview;
