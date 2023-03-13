@@ -1,13 +1,16 @@
-import {  Card } from "components";
+import { Card } from "components";
+import { AddReciepient } from "features/payout/components";
 import { GeneralLayout } from "layouts";
 
 export const Balance = () => {
   return (
-     
-      <GeneralLayout>
-        <Card>sdawdwd</Card>
-      </GeneralLayout>
- 
+    // <GeneralLayout>
+
+    <Card>
+      <AddReciepient />
+    </Card>
+
+    // </GeneralLayout>
   );
 };
 export default Balance;
