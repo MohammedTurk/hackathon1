@@ -17,9 +17,8 @@ export const URL_PATHS = {
       CONFIRMATION: "/invoices/pay-invoice/[invoiceId]/confirmation",
     },
   },
-  BALANE: {
+  BALANCE: {
     INDEX: "/balance",
-
   },
   VERIFICATION: {
     INDEX: "/verification",
@@ -45,7 +44,10 @@ export const APP_ROUTES: {
     URL_PATHS.VERIFICATION.IDENTITY,
     URL_PATHS.VERIFICATION.ADDRESS,
   ],
-  PUBLIC_ROUTES: [],
+  PUBLIC_ROUTES: [
+    URL_PATHS.BALANCE.INDEX,
+
+  ],
   AUTH_ROUTES: [
     URL_PATHS.AUTH.SIGN_IN,
     URL_PATHS.AUTH.SIGN_UP,
