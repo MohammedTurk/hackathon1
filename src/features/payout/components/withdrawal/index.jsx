@@ -10,7 +10,7 @@ const Withdrawal = () => {
         <>
             <Button onClick={() => setToggle(!toggle)}>Toggle Withdrawal</Button>
             {toggle && (
-                <div className='bg-[#F2F4F7] fixed right-0 top-0 w-[480px] h-screen z-10 px-5 border-solid border '>
+                <div className='bg-[#F2F4F7] fixed right-0 top-0 w-[480px] h-screen z-10 px-5 border-solid border transition duration-1000 ease-out'>
                     <div className='flex justify-start items-center py-9'>
                         <ChevronLeftIconOutline className="w-5 h-5" />
                         <h1 className="pl-40 font-bold">Withdrawal</h1>
