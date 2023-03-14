@@ -1,15 +1,17 @@
-import React from 'react'
-import { Card, Link } from 'components'
-import {ChevronRightIcon} from "@heroicons/react"
+import React from "react";
+import { Link } from "components";
+import { ChevronRightIconOutline } from "lib/@heroicons";
 
 const Nav = () => {
     return (
-        <Card className="flex gap-4">
-            <Link href="sign-up">Balance</Link>
-            {/* <ChevronRightIcon /> */}
-            <Link href="sign-in">Withdraw</Link>
-        </Card>
-    )
-}
+        <div className="flex gap-4">
+        <Link href="sign-up">Balance</Link>
+        <span className="h-5 w-5">
+            <ChevronRightIconOutline />
+        </span>
+        <Link href="sign-in">Withdraw</Link>
+        </div>
+    );
+};
 
-export default Nav
+export default Nav;

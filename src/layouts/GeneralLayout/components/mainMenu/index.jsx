@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { MainMenuData } from "data";
+import { MainMenuData, URL_PATHS } from "data";
 import { Link } from "components";
 import {
   ArrowRightOnRectangleIconMini,
