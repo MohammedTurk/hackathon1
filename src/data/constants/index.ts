@@ -12,6 +12,11 @@ export const API_SERVICES_URLS = {
     IDENTITY: "/user/verify/id",
     ADDRESS: "/user/verify/address",
   },
+  WITHDRAW:{
+   OFFICE_LIST:"/withdraw/office-list",
+   RECIPIENT_LIST:"/recipient/list"
+
+  },
   CLIENT: {
     INVOICE_DETAILS: (id: string) => `/invoice/client/${id}`,
     COMPLETE_INVOICE: (id: string) => `/invoice/client/complete-invoice/${id}`,

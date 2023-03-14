@@ -11,7 +11,7 @@ export const MainMenu = () => {
   const currentRoute = router.pathname;
   const classes = {
     aside:
-      "w-[16%] md:w-[25%] xl:w-[250px]   fixed top-16 left-0 z-40 flex flex-col h-[calc(100vh-60.64px)] bg-white  md:bg-transparent",
+      "w-[80px] md:w-[200px] xl:w-[250px]   fixed top-[60.64px] left-0 z-40 flex flex-col h-[calc(100vh-60.64px)] bg-white  md:bg-transparent",
     asideTitle:
       "ml-9 mb-5 text-lg hidden  md:block text-[#bbb] font-medium pt-[30px]",
     ulContainer: "flex flex-col h-full",
