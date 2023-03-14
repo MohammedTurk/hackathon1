@@ -5,3 +5,4 @@ export * from "./popUp/recipients";
 export * from "./popUp/addBankAccount";
 export * from "./popUp/bankAccounts";
 export * from "./popUp/surepayment";
+export * from "./popUp/preview"

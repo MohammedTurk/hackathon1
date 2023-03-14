@@ -1,4 +1,4 @@
-import { Button, Card, Input } from "components";
+import { Button, Card } from "components";
 import { XMarkIconMini } from "lib/@heroicons";
 
 export const Delete = () => {
