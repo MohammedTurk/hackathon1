@@ -17,5 +17,5 @@
     "baseUrl": "src"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/features/payout/hooks/useSWRHook/index.js", "src/components/Modal/index.jsx"],
-  "exclude": ["node_modules"]
+   "exclude": ["node_modules"]
 }
