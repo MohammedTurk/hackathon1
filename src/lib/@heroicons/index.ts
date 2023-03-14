@@ -17,7 +17,9 @@ import {
 
 } from "@heroicons/react/20/solid";
 import { InformationCircleIcon ,HomeIcon as HomeIconOutline, QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
-  XCircleIcon as XCircleIconOutline, ChevronRightIcon as ChevronRightIconOutline} from "@heroicons/react/24/outline";
+  XCircleIcon as XCircleIconOutline, ChevronRightIcon as ChevronRightIconOutline, ChevronLeftIcon as ChevronLeftIconOutline
+
+} from "@heroicons/react/24/outline";
 
 export {
   ErrorIconMini,
@@ -38,5 +40,6 @@ export {
   Cog8ToothIconMini,
   ArrowRightOnRectangleIconMini,
   XCircleIconOutline,
-  ChevronRightIconOutline
+  ChevronRightIconOutline,
+  ChevronLeftIconOutline
 }
