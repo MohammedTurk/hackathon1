@@ -13,12 +13,16 @@ import {
   ArrowDownTrayIcon as ArrowDownTrayIconMini,
   PlusIcon as PlusIconMini,
   Cog8ToothIcon as Cog8ToothIconMini,
-  ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini, 
-
+  ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini,
+  TrashIcon as TrashIconMini,
+  PencilIcon as PencilIconMini,
 } from "@heroicons/react/20/solid";
-import { InformationCircleIcon ,HomeIcon as HomeIconOutline, QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
-  XCircleIcon as XCircleIconOutline} from "@heroicons/react/24/outline";
- 
+import {
+  InformationCircleIcon,
+  HomeIcon as HomeIconOutline,
+  QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
+  XCircleIcon as XCircleIconOutline,
+} from "@heroicons/react/24/outline";
 
 export {
   ErrorIconMini,
@@ -38,5 +42,7 @@ export {
   PlusIconMini,
   Cog8ToothIconMini,
   ArrowRightOnRectangleIconMini,
-  XCircleIconOutline
-}
+  XCircleIconOutline,
+  TrashIconMini,
+  PencilIconMini,
+};

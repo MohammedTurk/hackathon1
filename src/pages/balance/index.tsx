@@ -1,11 +1,12 @@
-import {  Card,BalanceCard } from "components";
+
+import { Card, BalanceCard } from "components";
 import { GeneralLayout } from "layouts";
 
 export const Balance = () => {
   return (
-      <GeneralLayout rightSide={<BalanceCard />}>
-        <Card>sdawdwd</Card>
-      </GeneralLayout>
+    <GeneralLayout rightSide={<BalanceCard />}>
+
+    </GeneralLayout>
   );
 };
 Balance.mainLayoutProps = {
