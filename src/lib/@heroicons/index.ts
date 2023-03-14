@@ -22,6 +22,12 @@ import {
   HomeIcon as HomeIconOutline,
   QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
   XCircleIcon as XCircleIconOutline,
+  TrashIcon,
+  PencilIcon,
+  XMarkIcon,
+  ChevronUpDownIcon,
+  Bars3BottomRightIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 
 export {
@@ -45,4 +51,10 @@ export {
   XCircleIconOutline,
   TrashIconMini,
   PencilIconMini,
+  TrashIcon,
+  PencilIcon,
+  XMarkIcon,
+  ChevronUpDownIcon,
+  Bars3BottomRightIcon,
+  MagnifyingGlassIcon,
 };
