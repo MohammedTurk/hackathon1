@@ -13,7 +13,7 @@ export const Navbar = () => {
           </span>
         </div>
       </Link>
-      <NavLinks />
+      {/* <NavLinks /> */}
     </nav>
   );
 };
