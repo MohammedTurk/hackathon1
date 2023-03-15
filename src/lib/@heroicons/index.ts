@@ -17,7 +17,8 @@ import {
 
 } from "@heroicons/react/20/solid";
 import { InformationCircleIcon ,HomeIcon as HomeIconOutline, QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
-  XCircleIcon as XCircleIconOutline, ChevronRightIcon as ChevronRightIconOutline, ChevronLeftIcon as ChevronLeftIconOutline
+  XCircleIcon as XCircleIconOutline, ChevronRightIcon as ChevronRightIconOutline, ChevronLeftIcon as ChevronLeftIconOutline,
+  UserCircleIcon as UserCircleIconOutline
 
 } from "@heroicons/react/24/outline";
 
@@ -41,5 +42,6 @@ export {
   ArrowRightOnRectangleIconMini,
   XCircleIconOutline,
   ChevronRightIconOutline,
-  ChevronLeftIconOutline
+  ChevronLeftIconOutline,
+  UserCircleIconOutline
 }

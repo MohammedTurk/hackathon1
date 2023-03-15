@@ -1,12 +1,14 @@
 import { useRouter } from "next/router";
 import { MainMenuData, URL_PATHS } from "data";
 import { Link } from "components";
+import { useLogout } from "features/authentication";
 import {
   ArrowRightOnRectangleIconMini,
   Cog8ToothIconMini,
 } from "lib/@heroicons";
 
 export const MainMenu = () => {
+  const logout = useLogout();
   const router = useRouter();
   const currentRoute = router.pathname;
   const classes = {
@@ -53,7 +55,7 @@ export const MainMenu = () => {
 
               <span className={classes.linkName}>Settings</span>
             </Link>
-            <Link href="#" className={classes.link}>
+            <Link href="" onClick={logout} className={classes.link}>
               <span className={classes.linkIcon}>
                 <ArrowRightOnRectangleIconMini className="w-4 h-4 sm:h-5 sm:w-5 md:w-6 md:h-6" />
               </span>
