@@ -1,13 +1,13 @@
-import BalanceCard from "components/BalanceCard";
-
-import { Preview } from "features/payout/components";
-
+import { BalanceCard } from "components";
+import { Withdrawal } from "features/payout/components/withdrawal";
 import { GeneralLayout } from "layouts";
+
+// import Withdrawal from "../";
 
 export const Balance = () => {
   return (
     <GeneralLayout rightSide={<BalanceCard />}>
-      <Preview />
+      <Withdrawal />
     </GeneralLayout>
   );
 };

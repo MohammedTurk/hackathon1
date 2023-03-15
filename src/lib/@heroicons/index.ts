@@ -16,18 +16,17 @@ import {
   ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini,
   TrashIcon as TrashIconMini,
   PencilIcon as PencilIconMini,
+  Bars3BottomRightIcon as Bars3BottomRightIconMini,
+  ChevronUpDownIcon as ChevronUpDownIconMini,
 } from "@heroicons/react/20/solid";
+
 import {
   InformationCircleIcon,
   HomeIcon as HomeIconOutline,
   QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
   XCircleIcon as XCircleIconOutline,
-  TrashIcon,
-  PencilIcon,
-  XMarkIcon,
-  ChevronUpDownIcon,
-  Bars3BottomRightIcon,
-  MagnifyingGlassIcon,
+  ChevronRightIcon as ChevronRightIconOutline,
+  ChevronLeftIcon as ChevronLeftIconOutline,
 } from "@heroicons/react/24/outline";
 
 export {
@@ -49,12 +48,10 @@ export {
   Cog8ToothIconMini,
   ArrowRightOnRectangleIconMini,
   XCircleIconOutline,
+  ChevronRightIconOutline,
+  ChevronLeftIconOutline,
   TrashIconMini,
   PencilIconMini,
-  TrashIcon,
-  PencilIcon,
-  XMarkIcon,
-  ChevronUpDownIcon,
-  Bars3BottomRightIcon,
-  MagnifyingGlassIcon,
+  Bars3BottomRightIconMini,
+  ChevronUpDownIconMini,
 };
