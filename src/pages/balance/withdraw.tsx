@@ -6,9 +6,7 @@ import { GeneralLayout } from "layouts";
 export const Withdraw = () => {
   return (
     <GeneralLayout rightSide={<BalanceCard />}>
-      <WithdrawWrapper>
-    <span>ss</span>
-       </WithdrawWrapper>
+      <WithdrawWrapper/>
     </GeneralLayout>
   );
 };

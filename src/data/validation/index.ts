@@ -87,4 +87,8 @@ export const FORM_VALIDATION = {
   recipient: {
     required: "Recipient is required",
   },
+  idNumber:{
+
+    required: "IdNumber is required",
+  }
 } as const;

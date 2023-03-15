@@ -1,6 +1,6 @@
-import useSWR from 'swr';
-import axios from 'lib/axios';
-import { getAuthorizationHeader } from 'utils';
+import useSWR from "swr";
+import axios from "lib/axios";
+import { getAuthorizationHeader } from "utils";
 
 const myFetcher = async (url, method, options) => {
   try {
@@ -8,17 +8,24 @@ const myFetcher = async (url, method, options) => {
       url,
       method,
       ...options,
-      headers: { ...getAuthorizationHeader() }
+      headers: { ...getAuthorizationHeader() },
     });
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Something went wrong');
+    throw new Error(error.response?.data?.message || "Something went wrong");
   }
 };
 
-export const useSWRHook = (url, method = 'get', fetcher = myFetcher, options = {}) => {
-  const { data, error,isLoading } = useSWR([url, method, options], () => fetcher(url, method, options));
-  return { responseData: data?.data , error, isLoading };
+export const useSWRHook = (
+  url,
+  method = "get",
+  fetcher = myFetcher,
+  options = {}
+) => {
+  const { data, error, isLoading } = useSWR([url, method, options], () =>
+    fetcher(url, method, options)
+  );
+  return { responseData: data?.data, error, isLoading };
 };
 
 export default useSWRHook;

@@ -1,5 +1,5 @@
 import { Button, Input, SelectListBox } from "components";
-import { FORM_VALIDATION } from "data";
+import { API_SERVICES_URLS, FORM_VALIDATION } from "data";
 import useSWRHook from "features/payout/hooks/useSWRHook";
 import { WithdrawAmountType } from "features/payout/types";
 import React, { useState } from "react";
@@ -7,7 +7,10 @@ import { useForm } from "react-hook-form";
 import { getFieldHelperText } from "utils";
 
 export const Bank = () => {
- const {officeList} = useSWRHook()
+//  const {responseData} = useSWRHook(
+//   API_SERVICES_URLS.WITHDRAW.OFFICE_LIST,
+//     "get"
+//  )
 
   
 
@@ -50,7 +53,7 @@ export const Bank = () => {
 
 
       </div>
-      <SelectListBox data={officeList} label="Office"/>
+      {/* <SelectListBox data={responseData} label="Office"/> */}
       {/* <SelectList Box   label="Office"/> */}
 
       <Button type="submit" buttonSize="medium" fullWidth className="mt-10">

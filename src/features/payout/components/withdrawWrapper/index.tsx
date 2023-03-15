@@ -12,6 +12,7 @@ export const WithdrawWrapper = () => {
   const handlePaymentMethod = (value: string) => {
     setPayMethod(() => value);
   };
+  
   return (
     <Card className="px-20 py-10">
       <div className="flex justify-between">

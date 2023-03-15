@@ -1,13 +1,9 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 export function Modal({
   children,
-  // iconModal,
-  // button,
-  // titleOfControlModal,
   isOpen,
   closeModal,
-  // openModal,
   buttonModalClass = "",
   iconModalClass = "",
 }) {
@@ -19,17 +15,8 @@ export function Modal({
   };
   return (
     <>
-      {/* <button type="button" onClick={openModal} className={classes.buttonModal}>
-        <span className=" flex gap-2">
-          {iconModal ? (
-            <span className={classes.iconModal}>{iconModal}</span>
-          ) : null}
-          {titleOfControlModal ? titleOfControlModal : null}
-        </span>
-      </button> */}
-
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -53,7 +40,7 @@ export function Modal({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white  text-left align-middle shadow-xl transition-all">
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

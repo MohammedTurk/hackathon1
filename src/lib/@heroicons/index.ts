@@ -15,8 +15,7 @@ import {
   Cog8ToothIcon as Cog8ToothIconMini,
   ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini,
   TrashIcon as TrashIconMini,
-  PencilIcon as PencilIconMini,
-  XCircleIcon as XCircleIconMini,
+ 
 } from "@heroicons/react/20/solid";
 
 import {
@@ -26,6 +25,8 @@ import {
   XCircleIcon as XCircleIconOutline,
   ChevronRightIcon as ChevronRightIconOutline,
   ChevronLeftIcon as ChevronLeftIconOutline,
+  TrashIcon as TrashIconOutline,
+  PencilIcon as PencilIconOutline
 } from "@heroicons/react/24/outline";
 
 export {
@@ -48,8 +49,8 @@ export {
   ArrowRightOnRectangleIconMini,
   XCircleIconOutline,
   TrashIconMini,
-  PencilIconMini,
+  TrashIconOutline,
   ChevronRightIconOutline,
-  XCircleIconMini,
+  PencilIconOutline,
   QuestionMarkCircleIconMini
 };

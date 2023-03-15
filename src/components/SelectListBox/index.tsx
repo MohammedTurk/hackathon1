@@ -1,26 +1,28 @@
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Listbox, Transition } from "@headlessui/react";
-import { ReactNode, useEffect, useState } from "react";
- 
-import OfficeOption from "../OfficeOption";
+import { useEffect, useState } from "react";
 import { SelectListBoxProps } from "components/types";
 
- 
- 
 export const SelectListBox = ({
   data = [],
   label,
+  selectedRecipientFromEdit,
   error = false,
   withoutHelperText = false,
   helperText,
-  OptionType
- 
+  OptionType,
 }: SelectListBoxProps) => {
-  const [selected, setSelected] = useState<object>(data[0]);
- 
+  const [selected, setSelected] = useState<object>(
+    selectedRecipientFromEdit || data[0]
+  );
+
   useEffect(() => {
-    setSelected(data[0]);
-  }, [data]);
+    if (selectedRecipientFromEdit) {
+      setSelected(selectedRecipientFromEdit);
+    } else {
+      setSelected(data[0]);
+    }
+  }, [data, selectedRecipientFromEdit]);
 
   if (!data || data.length === 0) {
     // console.log("no data");
@@ -62,7 +64,7 @@ export const SelectListBox = ({
       {label && (
         <label className="block mb-1 font-medium text-gray-dark">{label}</label>
       )}
-      <Listbox value={selected} onChange={setSelected }>
+      <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1 ">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white   pl-3 pr-10 text-left border focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2   sm:text-sm h-20">
             <OptionType selected={selected} />
@@ -93,7 +95,6 @@ export const SelectListBox = ({
                 >
                   <>
                     <OptionType selected={person} />
-                    {/* <Divider /> */}
                   </>
                 </Listbox.Option>
               ))}
