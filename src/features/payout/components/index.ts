@@ -7,5 +7,5 @@ export * from "./popUp/Delete";
 export * from "./popUp/EditRecipient";
 export * from "./popUp/Delete";
 export * from "./TransactionsTable";
- 
-
+export * from "./popUp/SurePayment";
+export * from "./popUp/Preview"

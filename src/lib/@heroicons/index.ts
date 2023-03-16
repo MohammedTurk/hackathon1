@@ -17,11 +17,10 @@ import {
   TrashIcon as TrashIconMini,
   ChevronUpIcon as ChevronUpIconMini,
   ChevronDownIcon as ChevronDownIconMini,
-  MagnifyingGlassIcon as MagnifyingGlassIconMini
-
- 
-
- 
+  MagnifyingGlassIcon as MagnifyingGlassIconMini,
+PencilIcon as PencilIconMini,
+  Bars3BottomRightIcon as Bars3BottomRightIconMini,
+  ChevronUpDownIcon as ChevronUpDownIconMini,
 } from "@heroicons/react/20/solid";
 
 import {
@@ -61,5 +60,10 @@ export {
   QuestionMarkCircleIconMini,
   ChevronUpIconMini,
   ChevronDownIconMini,
-  MagnifyingGlassIconMini
+  MagnifyingGlassIconMini,
+   ChevronLeftIconOutline,
+  
+  PencilIconMini,
+  Bars3BottomRightIconMini,
+  ChevronUpDownIconMini,
 };
