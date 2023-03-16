@@ -28,7 +28,7 @@ export const useSWRMutationHook = (
     [url, method, options],
     () => myFetcher(url, method, options)
   );
-  return { trigger ,responseData: data, error, isMutating };
+  return { trigger , data , error, isMutating };
 };
 
 export default useSWRMutationHook;

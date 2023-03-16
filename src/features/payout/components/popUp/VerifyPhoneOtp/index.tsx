@@ -7,6 +7,7 @@ import {
 import {
   useRecipientMobileCode,
   useSWRHook,
+  useSwrMutationFetch,
   useSWRMutationHook,
 } from "features/payout/hooks";
 import { useCurrentUser } from "features/authentication";
@@ -15,65 +16,72 @@ import { API_SERVICES_URLS } from "data";
 
 const VerifyPhoneOtp = ({
   closeModal,
-  addData,
-  closePrevModal
-  ,setRecipientDataState,
-  verifyFor,
-  id
+  requestData,
+  sendCodeData,
+  closePrevModal,
+  setRecipientDataState,
+  urlReferch,
+  precess,
+  setBankList,
+  sendCodePath,
+  processRequestPath,
+  ProcessRequestMethod,
 }: {
   closeModal: () => void;
-  addData: [string, string ,string];
-  closePrevModal: () => void,
-  setRecipientDataState: Dispatch<SetStateAction<never[]>>,
-  verifyFor:string,
-  id?:number
-
+  requestData: {};
+  sendCodeData:{};
+  closePrevModal: () => void;
+  setRecipientDataState: Dispatch<SetStateAction<never[]>>;
+  setBankList:Dispatch<SetStateAction<never[]>>;
+  urlReferch:string;
+  precess:string,
+  id?: number;
+  sendCodePath: string;
+  processRequestPath: string;
+  ProcessRequestMethod: string;
 }) => {
-  const[urlProcessRequest,setUrlProcessRequest] = useState<string>();
-  const[methodProcessRequest,setMethodProcessRequest] = useState<string>();
-  useEffect(()=>{
-    if(verifyFor == "Add"){
-      setUrlProcessRequest(API_SERVICES_URLS.WITHDRAW.ADD_RECIPIENT);
-      setMethodProcessRequest("POST")
-    }else if(verifyFor == "Edit"){
-      const editUrl =API_SERVICES_URLS.WITHDRAW.EDIT_RECIPIENT(id)
-      setUrlProcessRequest(editUrl)
-      setMethodProcessRequest("PUT")
-
-    }
-  },[verifyFor])
  
+ 
+  
+
   const [isVerified, setIsVerified] = useState(false);
 
   const { trigger: sendCode, isMutating } = useSWRMutationHook(
-    API_SERVICES_URLS.WITHDRAW.VERIFICATION.SEND_MOBILE_CODE,
+    sendCodePath,
     "POST",
-    { data: { mobile: addData[0], idNumber: addData[1] } }
+    { data: {...sendCodeData} }
   );
- 
 
-  const { trigger: sendProcessRequest,responseData } = useSWRMutationHook(
-    urlProcessRequest,
-    methodProcessRequest,
-    { data: { mobile: addData[0], idNumber: addData[1],code:"123456",name:addData[2] } }
+  const { trigger: sendProcessRequest, data } = useSWRMutationHook(
+    processRequestPath,
+    ProcessRequestMethod,
+    { data: { ...requestData } }
   );
-  const { trigger: getRecipientsData,responseData:RecipientData  } = useSWRMutationHook(
-    API_SERVICES_URLS.WITHDRAW.RECIPIENT_LIST,
-    "get",
-  );
+
+
+
+    const {trigger :newReq  } = useSwrMutationFetch(urlReferch , {method: "GET",headers:{}})
  
   useEffect(() => {
     sendCode();
   }, []);
 
-  const onVerify = () => {
+  const onVerify =    async () => {
     setIsVerified(true);
-    sendProcessRequest()
-    getRecipientsData()
-    setRecipientDataState(RecipientData)
+   await sendProcessRequest();
+    const response = await newReq();
+    console.log("response", response);
+    
+    if(response.status == "failed") return
+    if(precess === "AddRecipient" || precess === "EditRecipient"){
+      setRecipientDataState(response.data)
+    }else{
 
-   };
- 
+      setBankList(response.data)
+    }
+     
+  };
+
   let imgSrc = "/assets/img/phone.png";
   let caption: React.ReactNode = (
     <>
@@ -86,22 +94,24 @@ const VerifyPhoneOtp = ({
   let content = (
     <>
       <p className="text-sm text-gray-dark mb-4">
-        We have sent you a verification code to your phone number {addData[0]}
+        We have sent you a verification code to your phone number {requestData?.mobile || useCurrentUser()?.user?.mobile}
       </p>
       <VerifyMobileForm onVerify={onVerify} />
     </>
   );
-    const handleClose=()=>{
-      // setRecipientDataState()
-      closePrevModal()
-        closeModal()
-    }
+  const handleClose = () => {
+    // setRecipientDataState()
+    closePrevModal();
+    closeModal();
+  };
   if (isVerified) {
     imgSrc = "/assets/img/check-mark.png";
     caption = null;
     content = (
-        <>
-        <p className="text-xl my-4 text-center">Your Phone Number has been Verified Successfully</p>
+      <>
+        <p className="text-xl my-4 text-center">
+          Your Request Is Completed
+        </p>
         <Button
           type="submit"
           buttonSize="small"
@@ -111,7 +121,6 @@ const VerifyPhoneOtp = ({
           Continue
         </Button>
       </>
-       
     );
   }
 

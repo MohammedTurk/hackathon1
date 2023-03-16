@@ -34,6 +34,9 @@ export const FORM_VALIDATION = {
   country: {
     required: "Country is required",
   },
+  branch: {
+    required: "Bank Branch is required",
+  },
   otp: {
     pattern: VALIDATION_RULES.isNumber,
   },
@@ -90,5 +93,13 @@ export const FORM_VALIDATION = {
   idNumber:{
 
     required: "IdNumber is required",
+  }, ledger:{
+
+    required: "ledger is required",
+  },
+  
+  accountNumber:{
+
+    required: "Account Number is required",
   }
 } as const;

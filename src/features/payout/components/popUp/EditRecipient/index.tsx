@@ -5,8 +5,7 @@ import {
   XMarkIconMini,
   PencilIconOutline,
 } from "lib/@heroicons";
-import VerifyPhoneOtp from "../VerifyPhoneOtp";
-import AddRecipient from "../AddRecipient";
+import   { ControlRecipient } from "../ControlRecipient";
 import { useModal } from "hooks";
 import { Delete } from "../Delete";
 import { useSWRMutationHook } from "features/payout/hooks";
@@ -81,7 +80,7 @@ export const EditRecipient = ({
       <div className="  fixed top-0 left-0 p-6   bg-white w-full">
         <div className="flex justify-between items-center">
           <h3 className="font-semibold text-2xl">Recipients</h3>
-          <span className="h-5 w-5 cursor-pointer font-[700]">
+          <span className="h-5 w-5 cursor-pointer font-[700]" onClick={closeModal}>
             <XMarkIconMini />
           </span>
         </div>
@@ -133,7 +132,7 @@ export const EditRecipient = ({
         </div>
       </div>
           <Modal isOpen={isOpenEditRecipient} closeModal={closeModalEditRecipient}>
-            <AddRecipient closeModal={closeModal} closeCurrentModal={closeModalEditRecipient} setRecipientDataState={setRecipientDataState} recipientForEdit={active}  precess="Edit"/>
+            <ControlRecipient closeModal={closeModal} closeCurrentModal={closeModalEditRecipient} setRecipientData={setRecipientDataState} recipientForEdit={active}  precess="EditRecipient"/>
           </Modal>
 
           <Modal isOpen={isOpenDeleteRecipient} closeModal={closeModalDeleteRecipient}>

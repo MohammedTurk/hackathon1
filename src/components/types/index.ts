@@ -54,6 +54,7 @@ export interface SelectProps
     CommonFormElementsType {
   selectClassName?: string;
   selectSize?: SizeVariantsType;
+  labelClassName?:string;
   options: { value: string; label: string }[];
 }
 
@@ -67,7 +68,7 @@ export type SelectListBoxProps = CommonFormElementsType & {
     startingHour: number;
     endingHour: string;
   }[];
-  OptionType :JSX.Element
+  OptionType:JSX.Element
  
 };
 

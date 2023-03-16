@@ -1,6 +1,6 @@
 import { MainMenu } from "./components";
 
-export const GeneralLayout = ({ children, rightSide }) => {
+export const GeneralLayout = ({ children, rightSide, rightSideClasses }) => {
   return (
     <div>
       <MainMenu />
@@ -9,7 +9,11 @@ export const GeneralLayout = ({ children, rightSide }) => {
           {children}
         </div>
         {rightSide && (
-          <div className="w-[100%] xl:w-[600px] order-1 xl:order-2 xl:sticky  h-full lg:top-0   xl:right-0">
+          <div
+            className={`w-[100%] xl:w-[600px] order-1 xl:order-2 xl:sticky  h-full lg:top-0   xl:right-0 ${
+              rightSideClasses ?? ""
+            }`}
+          >
             {rightSide}
           </div>
         )}
