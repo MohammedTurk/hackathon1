@@ -1,11 +1,13 @@
 import { Button, Card, IconButton } from "components";
 import { ArrowDownTrayIconMini, PlusIconMini } from "lib/@heroicons";
 import { Send } from "components/svg";
+import { useCurrentUser } from "features/authentication";
 
-export const BalanceCard = ({ balance = "250.00" }) => {
-  const beforeDecimal = Math.trunc(balance);
-  var getDecimalVal = balance.toString().indexOf(".");
-  var afterDecimal = balance.toString().substring(getDecimalVal + 1);
+export const BalanceCard = () => {
+  const {user} = useCurrentUser()
+  const beforeDecimal = Math.trunc(user?.balance);
+  var getDecimalVal = user?.balance.toString().indexOf(".");
+  var afterDecimal = user?.balance.toString().substring(getDecimalVal + 1);
   const buttonClasses = {
     button:
       "!bg-[#F3F6FF] !text-[#4375FF] hover:!text-[#F3F6FF] hover:!bg-[#4375FF] flex items-center gap-1 sm:gap-2  ",

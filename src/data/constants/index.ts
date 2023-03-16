@@ -31,7 +31,6 @@ export const API_SERVICES_URLS = {
     VERIFICATION: {
       SEND_MOBILE_CODE_RECIPIENT: "/recipient/send-code",
       SEND_MOBILE_CODE_BANK: "/bank/send-code",
-      
     },
   },
   CLIENT: {

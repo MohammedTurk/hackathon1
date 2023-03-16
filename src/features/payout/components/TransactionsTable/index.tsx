@@ -1,4 +1,4 @@
- import { Button, Input, TableSkeleton ,MyPopover} from "components";
+import { Button, Input, TableSkeleton ,MyPopover} from "components";
 import { API_SERVICES_URLS } from "data";
 import { useSWRMutationHook } from "features/payout/hooks";
 import {
@@ -151,7 +151,6 @@ export const TransactionsTable = () => {
                         <input type="checkbox" name="Canceled" id="Canceled" />
                         <label htmlFor="Canceled" className="text-gray-dark font-medium">Canceled</label>
                     </span>
-                   
                 </MyPopover>
                 {/* <Button
                   buttonSize="small"
