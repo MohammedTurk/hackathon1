@@ -8,8 +8,31 @@ import {
   XMarkIcon as XMarkIconMini,
   InformationCircleIcon as InformationCircleIconMini,
   CheckIcon as CheckIconMini,
+  HomeIcon as HomeIconMini,
+  QuestionMarkCircleIcon as QuestionMarkCircleIconMini,
+  ArrowDownTrayIcon as ArrowDownTrayIconMini,
+  PlusIcon as PlusIconMini,
+  Cog8ToothIcon as Cog8ToothIconMini,
+  ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini,
+  TrashIcon as TrashIconMini,
+  ChevronUpIcon as ChevronUpIconMini,
+  ChevronDownIcon as ChevronDownIconMini,
+  MagnifyingGlassIcon as MagnifyingGlassIconMini,
+PencilIcon as PencilIconMini,
+  Bars3BottomRightIcon as Bars3BottomRightIconMini,
+  ChevronUpDownIcon as ChevronUpDownIconMini,
 } from "@heroicons/react/20/solid";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
+
+import {
+  InformationCircleIcon,
+  HomeIcon as HomeIconOutline,
+  QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
+  XCircleIcon as XCircleIconOutline,
+  ChevronRightIcon as ChevronRightIconOutline,
+  ChevronLeftIcon as ChevronLeftIconOutline,
+  TrashIcon as TrashIconOutline,
+  PencilIcon as PencilIconOutline
+} from "@heroicons/react/24/outline";
 
 export {
   ErrorIconMini,
@@ -22,4 +45,25 @@ export {
   InformationCircleIconMini,
   InformationCircleIcon,
   CheckIconMini,
+  HomeIconMini,
+  HomeIconOutline,
+  QuestionMarkCircleIconOutline,
+  ArrowDownTrayIconMini,
+  PlusIconMini,
+  Cog8ToothIconMini,
+  ArrowRightOnRectangleIconMini,
+  XCircleIconOutline,
+  TrashIconMini,
+  TrashIconOutline,
+  ChevronRightIconOutline,
+  PencilIconOutline,
+  QuestionMarkCircleIconMini,
+  ChevronUpIconMini,
+  ChevronDownIconMini,
+  MagnifyingGlassIconMini,
+   ChevronLeftIconOutline,
+  
+  PencilIconMini,
+  Bars3BottomRightIconMini,
+  ChevronUpDownIconMini,
 };

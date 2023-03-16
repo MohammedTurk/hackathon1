@@ -3,6 +3,9 @@ import type { ImageProps as NextImageProps } from "next/image";
 import type { LinkProps as NextLinkProps } from "next/link";
 import type { PhoneInputProps as ReactPhoneInputProps } from "react-phone-input-2";
 import type { DivElementType, SpanElementType, ChildrenProp } from "types";
+import { FieldValues } from "lib/react-hook-form/types";
+import { Control, ControllerProps, Path, UseFormSetValue } from "react-hook-form";
+import { WithdrawAmountType } from "features/payout/types";
 
 //@TODO: Create custom type for the duplicated properties like: helperText etc...
 
@@ -30,7 +33,7 @@ export interface InputProps
   inputClassName?: string;
   inputSize?: SizeVariantsType;
   labelClassName?: string;
-  focusableLabel?: boolean;
+   focusableLabel?: boolean;
 }
 
 export interface LogoProps extends Omit<NextImageProps, "src" | "alt"> {
@@ -51,8 +54,24 @@ export interface SelectProps
     CommonFormElementsType {
   selectClassName?: string;
   selectSize?: SizeVariantsType;
+  labelClassName?:string;
   options: { value: string; label: string }[];
 }
+
+
+export type SelectListBoxProps = CommonFormElementsType & {
+  data: {
+    _id: string;
+    name: string;
+    address: string;
+    fees: number;
+    startingHour: number;
+    endingHour: string;
+  }[];
+  OptionType:JSX.Element
+ 
+};
+
 
 export interface HelperTextProps
   extends HTMLProps<HTMLParagraphElement>,
@@ -201,3 +220,10 @@ export type ToggleButtonsContextType = {
   value: string | undefined;
   onChange: (value: string) => void;
 };
+export type RadioButtonType = {
+  selected :string ;
+  handleChange : (value: string) => void;
+  label:string;
+  className:string;
+  children: JSX.Element
+}
