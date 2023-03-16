@@ -6,66 +6,66 @@ import { SelectListBoxProps } from "components/types";
 export const SelectListBox = ({
   data = [],
   label,
-  selectedRecipientFromEdit,
+  selectedFromEdit,
   error = false,
   withoutHelperText = false,
   helperText,
   OptionType,
 }: SelectListBoxProps) => {
+  console.log(data);
+  
   const [selected, setSelected] = useState<object>(
-    selectedRecipientFromEdit || data[0]
+    selectedFromEdit || data[0]
   );
 
   useEffect(() => {
-    if (selectedRecipientFromEdit) {
-      setSelected(selectedRecipientFromEdit);
+    if (selectedFromEdit) {
+      setSelected(selectedFromEdit);
     } else {
       setSelected(data[0]);
     }
-  }, [data, selectedRecipientFromEdit]);
+  }, [data, selectedFromEdit]);
 
-  if (!data || data.length === 0) {
-    // console.log("no data");
-
-    return (
-      <>
-        {label && (
-          <label className="block mb-1 font-medium text-gray-dark">
-            {label}
-          </label>
-        )}
-        <Listbox>
-          <div className="relative mt-1 ">
-            <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left border focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2   sm:text-sm h-14">
-              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                <ChevronUpDownIcon
-                  className="h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-              </span>
-            </Listbox.Button>
-            <Transition
-              // as={Fragment}
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <Listbox.Options className="absolute mt-1 max-h-60 w-full z-40 overflow-auto rounded-md bg-white py-1 text-base  ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"></Listbox.Options>
-            </Transition>
-          </div>
-        </Listbox>
-      </>
-    );
-  }
-  // console.log(data);
+  // if (!data || data.length === 0) {
+  //   return (
+  //     <>
+  //       {label && (
+  //         <label className="block mb-1 mt-3 font-medium text-gray-dark">
+  //           {label}
+  //         </label>
+  //       )}
+  //       <Listbox>
+  //         <div className="relative  ">
+  //           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left border focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2   sm:text-sm h-14">
+  //             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+  //               <ChevronUpDownIcon
+  //                 className="h-5 w-5 text-gray-400"
+  //                 aria-hidden="true"
+  //               />
+  //             </span>
+  //           </Listbox.Button>
+  //           <Transition
+  //             // as={Fragment}
+  //             leave="transition ease-in duration-100"
+  //             leaveFrom="opacity-100"
+  //             leaveTo="opacity-0"
+  //           >
+  //             <Listbox.Options className="absolute mt-1 max-h-60 w-full z-40 overflow-auto rounded-md bg-white py-1 text-base  ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"></Listbox.Options>
+  //           </Transition>
+  //         </div>
+  //       </Listbox>
+  //     </>
+  //   );
+  // }
+  
 
   return (
     <>
       {label && (
-        <label className="block mb-1 font-medium text-gray-dark">{label}</label>
+        <label className="block mb-1  mt-5 font-medium text-gray-dark">{label}</label>
       )}
       <Listbox value={selected} onChange={setSelected}>
-        <div className="relative mt-1 ">
+        <div className="relative ">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white   pl-3 pr-10 text-left border focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2   sm:text-sm h-20">
             <OptionType selected={selected} />
 
@@ -102,9 +102,7 @@ export const SelectListBox = ({
           </Transition>
         </div>
       </Listbox>
-      {!withoutHelperText && (
-        <p className="inline-flex min-h-[20px] text-xs mt-1">{helperText}</p>
-      )}
+     
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { Button, Card, Input, Modal, PhoneInput } from "components";
-import { FORM_VALIDATION } from "data";
+import { API_SERVICES_URLS, FORM_VALIDATION } from "data";
 import { AddRecipientType } from "features/payout/types";
 import { useModal } from "hooks";
 import { XMarkIconMini } from "lib/@heroicons";
@@ -9,17 +9,18 @@ import { useEffect } from "react";
 import { getFieldHelperText } from "utils";
 import VerifyPhoneOtp from "../VerifyPhoneOtp";
 
-export const AddRecipient = ({
+export const ControlRecipient = ({
   closeModal: closePrevModal,
-  setRecipientDataState,
+  setRecipientData,
   recipientForEdit,
-  precess = "Add",
+  precess = "AddRecipient",
   closeCurrentModal
 }: {
   closeModal: () => void;
-  setRecipientDataState: React.Dispatch<React.SetStateAction<never[]>>;
+  setRecipientData: React.Dispatch<React.SetStateAction<never[]>>;
   precess: string;
-  closeCurrentModal: () => void
+  closeCurrentModal: () => void;
+  recipientForEdit : {}
 }) => {
   const { isOpen, closeModal: closeModalOtp, openModal } = useModal();
   const {
@@ -41,6 +42,8 @@ export const AddRecipient = ({
   const onSubmit = handleSubmit((data) => {
     openModal();
   });
+ 
+ 
 
   return (
     <div className="p-6">
@@ -129,17 +132,22 @@ export const AddRecipient = ({
       </form>
       <Modal isOpen={isOpen} closeModal={closeModalOtp}>
         <VerifyPhoneOtp
-          addData={getValues(["mobile", "idNumber", "name"])}
+          
           closeModal={closeModalOtp}
           closePrevModal={closePrevModal}
-          setRecipientDataState={setRecipientDataState}
-          verifyFor={precess}
-          id={precess && recipientForEdit?._id}
-        />
-        {/* <AddRecipient closeModal={closeModalOtp} /> */}
-        {/* <AddPost closeModal={closeModal} /> */}
+          setRecipientDataState={setRecipientData}
+          precess={precess}
+          sendCodePath ={API_SERVICES_URLS.WITHDRAW.VERIFICATION.SEND_MOBILE_CODE_RECIPIENT}
+          processRequestPath={precess === "EditRecipient"? API_SERVICES_URLS.WITHDRAW.EDIT_RECIPIENT(recipientForEdit?._id) : API_SERVICES_URLS.WITHDRAW.ADD_RECIPIENT }
+          ProcessRequestMethod={precess === "EditRecipient" ? "PUT" :"POST"}
+          requestData={{mobile :getValues("mobile"),idNumber:getValues("idNumber"),name:getValues("name"),code:"123456"}}
+          sendCodeData={{mobile :getValues("mobile"),idNumber:getValues("idNumber")  }}
+          urlReferch={API_SERVICES_URLS.WITHDRAW.RECIPIENT_LIST} 
+         
+         />
+    
       </Modal>
     </div>
   );
 };
-export default AddRecipient;
+export default ControlRecipient;

@@ -14,6 +14,15 @@ export type WithdrawAmountType = {
     name: string;
   }
 
+  export type AddBankType = {
+    code:  string;
+    accountNumber: string;
+    ledger: string;
+    bankBranch: string;
+    accountName :string
+  
+  }
+
 
   export type SendMobileCodeRecipientResponseType = APIResponseType<{
     mobile: string;

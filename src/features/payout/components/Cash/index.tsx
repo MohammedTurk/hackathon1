@@ -2,6 +2,7 @@ import {
   Button,
   IconButton,
   Input,
+  ItemSkeleton,
   Modal,
   OfficeOption,
   SelectListBox,
@@ -15,14 +16,15 @@ import { getFieldHelperText } from "utils";
 import RecipientOption from "components/RecipientOption";
 import { PlusIconMini } from "lib/@heroicons";
 import { useModal } from "hooks";
-
-import { AddRecipient, EditRecipient } from "../popUp";
+ 
+import {  ControlRecipient,EditRecipient  } from "../popUp";
+ 
 
 // import AddReciepient from "../popUp/addReciepient";
 
 export const Cash = () => {
-  const [RecipientDataState, setRecipientDataState] = useState([]);
-  const [selectedRecipientFromEdit, setSelectedRecipientFromEdit] = useState();
+  const [recipientDataState ,setRecipientDataState] =useState([])
+  const[selectedRecipientFromEdit ,setSelectedRecipientFromEdit] = useState()
   const {
     isOpen: isOpenAddRecipient,
     closeModal: closeModalAddRecipient,
@@ -33,19 +35,20 @@ export const Cash = () => {
     closeModal: closeModalEditRecipient,
     openModal: openModalEditRecipient,
   } = useModal();
-  const { responseData: OfficeData } = useSWRHook(
+  const { responseData: OfficeData ,isLoading : isLoadingOffice} = useSWRHook(
     API_SERVICES_URLS.WITHDRAW.OFFICE_LIST,
     "get"
   );
 
-  const { responseData: RecipientData } = useSWRHook(
+  const { responseData: RecipientData ,isLoading : isLoadingRecipient} = useSWRHook(
     API_SERVICES_URLS.WITHDRAW.RECIPIENT_LIST,
     "get"
   );
 
-  useEffect(() => {
-    setRecipientDataState(RecipientData);
-  }, [RecipientData]);
+ 
+  useEffect(()=>{    
+    setRecipientDataState(RecipientData)
+  },[RecipientData])
 
   const {
     register,
@@ -53,7 +56,7 @@ export const Cash = () => {
     formState: { errors },
     setValue,
     clearErrorOnChange,
-    control,
+    control
   } = useForm<WithdrawAmountType>();
   const handleAmount = (value: number | string) => {
     const beforeDecimal = Math.trunc(+value);
@@ -89,17 +92,19 @@ export const Cash = () => {
             helperText={getFieldHelperText("error", errors.amount?.message)}
           />
         </div>
-
-        <SelectListBox
+{isLoadingOffice ? <ItemSkeleton/>: <SelectListBox
           data={OfficeData}
           label={"Office"}
           error={!!errors.office}
           helperText={getFieldHelperText("error", errors.office?.message)}
           OptionType={OfficeOption}
-        />
+        />}
+        
 
-        <SelectListBox
-          data={RecipientDataState?.recipients}
+       
+{isLoadingRecipient ? <ItemSkeleton/> :<>
+<SelectListBox
+          data={recipientDataState?.recipients}
           label={
             <span className="flex items-center gap-2">
               <span>Recipient</span>
@@ -114,7 +119,8 @@ export const Cash = () => {
           error={!!errors.recipient}
           helperText={getFieldHelperText("error", errors.recipient?.message)}
           OptionType={RecipientOption}
-          selectedRecipientFromEdit={selectedRecipientFromEdit}
+          selectedFromEdit={selectedRecipientFromEdit}
+
         />
 
         <Button
@@ -123,7 +129,9 @@ export const Cash = () => {
         >
           <PlusIconMini className="h-4 w-4 sm:h-5 sm:w-5" />
           <span className="text-xs sm:text-sm">Add recipient</span>
-        </Button>
+        </Button></>}
+        
+        
 
         {/* <SelectList Box   label="Office"/> */}
 
@@ -132,20 +140,14 @@ export const Cash = () => {
         </Button>
       </form>
       <Modal isOpen={isOpenAddRecipient} closeModal={closeModalAddRecipient}>
-        <AddRecipient
-          closeModal={closeModalAddRecipient}
-          setRecipientDataState={setRecipientDataState}
-          precess="Add"
-        />
-      </Modal>
-      <Modal isOpen={isOpenEditRecipient} closeModal={closeModalEditRecipient}>
-        <EditRecipient
-          RecipientsData={RecipientDataState}
-          setSelectedRecipient={setSelectedRecipientFromEdit}
+          <ControlRecipient closeModal={closeModalAddRecipient} setRecipientData={ setRecipientDataState } precess="AddRecipient"/>
+         </Modal>
+        <Modal
+          isOpen={isOpenEditRecipient}
           closeModal={closeModalEditRecipient}
-          setRecipientDataState={setRecipientDataState}
-        />
-      </Modal>
+        >
+          <EditRecipient RecipientsData={recipientDataState} setSelectedRecipient={setSelectedRecipientFromEdit} closeModal={closeModalEditRecipient} setRecipientDataState={setRecipientDataState}/>
+        </Modal>
     </div>
   );
 };

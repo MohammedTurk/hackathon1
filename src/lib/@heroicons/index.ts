@@ -15,7 +15,9 @@ import {
   Cog8ToothIcon as Cog8ToothIconMini,
   ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini,
   TrashIcon as TrashIconMini,
-
+  ChevronUpIcon as ChevronUpIconMini,
+  ChevronDownIcon as ChevronDownIconMini,
+  MagnifyingGlassIcon as MagnifyingGlassIconMini
 } from "@heroicons/react/20/solid";
 
 import {
@@ -54,5 +56,7 @@ export {
   ChevronRightIconOutline,
   PencilIconOutline,
   QuestionMarkCircleIconMini,
-  UserCircleIconOutline
+  ChevronUpIconMini,
+  ChevronDownIconMini,
+  MagnifyingGlassIconMini
 };

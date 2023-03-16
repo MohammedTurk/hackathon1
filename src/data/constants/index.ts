@@ -15,11 +15,23 @@ export const API_SERVICES_URLS = {
   WITHDRAW: {
     OFFICE_LIST: "/withdraw/office-list",
     RECIPIENT_LIST: "/recipient/list",
+    WITHDRAW_LIST :"/withdraw/list",
     ADD_RECIPIENT: "/recipient/create",
+    BANK_LIST: "/bank/listing",
+    ADD_BANK: "/bank/add",
+
+
+    
     EDIT_RECIPIENT: (id: string) => `/recipient/edit/${id}`,
+    EDIT_BANK: (id: string) => `/bank/edit/${id}`,
     Delete_RECIPIENT: (id: string) => `/recipient/delete/${id}`,
+    Delete_BANK: (id: string) => `/bank/delete/${id}`,
+
+    
     VERIFICATION: {
-      SEND_MOBILE_CODE: "/recipient/send-code",
+      SEND_MOBILE_CODE_RECIPIENT: "/recipient/send-code",
+      SEND_MOBILE_CODE_BANK: "/bank/send-code",
+      
     },
   },
   CLIENT: {
