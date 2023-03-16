@@ -71,4 +71,24 @@ export const FORM_VALIDATION = {
       message: "Should be numbers",
     },
   },
+  withdrawCashAmount: {
+    required: "Amount is required",
+    pattern: {
+      value: VALIDATION_RULES.isNumber,
+      message: "you can't withdraw cents in cash",
+    },
+  },
+  withdrawBankAmount: {
+    required: "Amount is required",
+  },
+  office: {
+    required: "Office is required",
+  },
+  recipient: {
+    required: "Recipient is required",
+  },
+  idNumber:{
+
+    required: "IdNumber is required",
+  }
 } as const;

@@ -4,4 +4,6 @@ export * from "./Contact";
 export * from "./Invoices";
 export * from "./Send";
 export * from "./Withdraw";
+export * from "./BankIcon";
+export * from "./CashIcon";
  

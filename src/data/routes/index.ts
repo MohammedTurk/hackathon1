@@ -19,6 +19,7 @@ export const URL_PATHS = {
   },
   BALANCE: {
     INDEX: "/balance",
+    WITHDRAW: "/withdraw" 
   },
   VERIFICATION: {
     INDEX: "/verification",
@@ -43,9 +44,11 @@ export const APP_ROUTES: {
     URL_PATHS.VERIFICATION.PHONE,
     URL_PATHS.VERIFICATION.IDENTITY,
     URL_PATHS.VERIFICATION.ADDRESS,
+    URL_PATHS.BALANCE.INDEX,
+    URL_PATHS.BALANCE.WITHDRAW,
+
   ],
   PUBLIC_ROUTES: [
-    URL_PATHS.BALANCE.INDEX,
 
   ],
   AUTH_ROUTES: [

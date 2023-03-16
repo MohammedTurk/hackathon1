@@ -14,12 +14,20 @@ import {
   PlusIcon as PlusIconMini,
   Cog8ToothIcon as Cog8ToothIconMini,
   ArrowRightOnRectangleIcon as ArrowRightOnRectangleIconMini,
+  TrashIcon as TrashIconMini,
 
 } from "@heroicons/react/20/solid";
-import { InformationCircleIcon ,HomeIcon as HomeIconOutline, QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
-  XCircleIcon as XCircleIconOutline, ChevronRightIcon as ChevronRightIconOutline, ChevronLeftIcon as ChevronLeftIconOutline,
-  UserCircleIcon as UserCircleIconOutline
 
+import {
+  InformationCircleIcon,
+  HomeIcon as HomeIconOutline,
+  QuestionMarkCircleIcon as QuestionMarkCircleIconOutline,
+  XCircleIcon as XCircleIconOutline,
+  ChevronRightIcon as ChevronRightIconOutline,
+  ChevronLeftIcon as ChevronLeftIconOutline,
+  TrashIcon as TrashIconOutline,
+  PencilIcon as PencilIconOutline,
+  UserCircleIcon as UserCircleIconOutline
 } from "@heroicons/react/24/outline";
 
 export {
@@ -41,7 +49,10 @@ export {
   Cog8ToothIconMini,
   ArrowRightOnRectangleIconMini,
   XCircleIconOutline,
+  TrashIconMini,
+  TrashIconOutline,
   ChevronRightIconOutline,
-  ChevronLeftIconOutline,
+  PencilIconOutline,
+  QuestionMarkCircleIconMini,
   UserCircleIconOutline
-}
+};
