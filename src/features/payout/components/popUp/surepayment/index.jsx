@@ -1,6 +1,6 @@
 import { Card, OtpInput, Link, Button } from "components";
 import { XMarkIconMini } from "lib/@heroicons";
-export const Surepayment = () => {
+export const SurePayment = () => {
   return (
     <div>
       <Card className="w-[600px] pl-[60px] pr-[60px]">
@@ -29,4 +29,4 @@ export const Surepayment = () => {
     </div>
   );
 };
-export default Surepayment;
+export default SurePayment;

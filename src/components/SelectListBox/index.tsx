@@ -11,12 +11,16 @@ export const SelectListBox = ({
   withoutHelperText = false,
   helperText,
   OptionType,
+  setValue,
+  fieldName,
+  setSelectDetails
 }: SelectListBoxProps) => {
   console.log(data);
   
   const [selected, setSelected] = useState<object>(
     selectedFromEdit || data[0]
   );
+
 
   useEffect(() => {
     if (selectedFromEdit) {
@@ -25,6 +29,21 @@ export const SelectListBox = ({
       setSelected(data[0]);
     }
   }, [data, selectedFromEdit]);
+
+  useEffect(()=>{
+     
+    setSelectDetails(selected)
+    if(fieldName === "officeId"){
+      setValue("officeId",selected?._id)
+    }else if(fieldName === "recipientId"){
+      setValue("recipientId",selected?._id)
+
+    }else{
+      setValue("bankId",selected?._id)
+
+      
+    }
+   },[selected])
 
   // if (!data || data.length === 0) {
  

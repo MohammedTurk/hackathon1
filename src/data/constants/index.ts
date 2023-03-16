@@ -19,13 +19,22 @@ export const API_SERVICES_URLS = {
     ADD_RECIPIENT: "/recipient/create",
     BANK_LIST: "/bank/listing",
     ADD_BANK: "/bank/add",
-
+    REQUEST_CASH_WITHDRAW: "/withdraw/request-cash",
+    REQUEST_BANK_WITHDRAW: "/withdraw/request-bank",
+    
 
     
     EDIT_RECIPIENT: (id: string) => `/recipient/edit/${id}`,
     EDIT_BANK: (id: string) => `/bank/edit/${id}`,
     Delete_RECIPIENT: (id: string) => `/recipient/delete/${id}`,
     Delete_BANK: (id: string) => `/bank/delete/${id}`,
+    WITHDRAW_DETAILS: (id: string) => `/withdraw/details/${id}`,
+    CANCEL_WITHDRAW: (id: string) => `/withdraw/cancel/${id}`,
+    CONFIRM_WITHDRAW: (id: string) => `/withdraw/confirm-payout/${id}`,
+
+
+    
+    
 
     
     VERIFICATION: {

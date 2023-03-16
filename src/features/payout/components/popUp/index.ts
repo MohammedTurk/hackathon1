@@ -2,6 +2,7 @@ export * from './ControlBankAccount'
 export * from './ControlRecipient'
 export * from './Delete'
 export * from './EditRecipient'
-export * from './TransferPreview'
+export * from './CashWithdrawPreview'
+export * from './BankWithdrawPreview'
 export * from './VerifyPhoneOtp'
  

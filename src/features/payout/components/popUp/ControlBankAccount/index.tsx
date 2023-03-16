@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Card, Input, Button, Select, Modal } from "components";
 import { API_SERVICES_URLS, banksList, currencyList, FORM_VALIDATION } from "data";
 import { AddBankType } from "features/payout/types";
-import { useModal } from "hooks";
+import { useToggle } from "hooks";
 import { XMarkIconMini } from "lib/@heroicons";
 import useForm from "lib/react-hook-form";
 import { getFieldHelperText } from "utils";
@@ -13,18 +13,18 @@ export const ControlBankAccount = ({
   setBankList,
   bankForEdit,
   precess = "AddBank",
-  closeCurrentModal,
+ 
 }: {
   closeModal: () => void;
   setBankList: React.Dispatch<React.SetStateAction<never[]>>;
   precess: string;
-  closeCurrentModal: () => void;
+   
 }) => {
   const {
     isOpen: isOpenModalOtp,
     closeModal: closeModalOtp,
     openModal: openModalOtp,
-  } = useModal();
+  } = useToggle();
   const {
     register,
     handleSubmit,
@@ -54,7 +54,7 @@ export const ControlBankAccount = ({
             <span className="font-semibold text-xl">
               {bankForEdit ? "Edit Bank Account" : "Add Bank Account"}
             </span>
-            <XMarkIconMini className="h-5 w-5 cursor-pointer " onClick={closeCurrentModal}/>
+            <XMarkIconMini className="h-5 w-5 cursor-pointer " onClick={closePrevModal}/>
           </div>
           <Select
             label="Bank"

@@ -1,12 +1,12 @@
 import {   BalanceCard } from "components";
-import { TransactionsTable } from "features/payout/components";
+import {   TransactionsWrapper } from "features/payout/components";
  
 import { GeneralLayout } from "layouts";
  
 export const Balance = () => {
   return (
     <GeneralLayout rightSide={<BalanceCard />} rightSideClasses="xl:!top-[9rem]">
-      <TransactionsTable/>
+      <TransactionsWrapper/>
     </GeneralLayout>
   );
 };
