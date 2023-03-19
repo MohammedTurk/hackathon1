@@ -103,7 +103,6 @@ export const SelectListBox = ({
           </Transition>
         </div>
       </Listbox>
-     
     </>
   );
 };

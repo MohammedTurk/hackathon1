@@ -15,7 +15,6 @@ export const Bank = () => {
   const [bankList, setBankList] = useState([]);
   const [selectedBankFromEdit, setSelectedBankFromEdit] = useState();
 
- 
   const { responseData: bankListData ,isLoading } = useSWRHook(
     API_SERVICES_URLS.WITHDRAW.BANK_LIST,
     "get"

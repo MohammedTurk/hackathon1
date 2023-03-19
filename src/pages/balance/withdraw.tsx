@@ -1,5 +1,4 @@
 import { BalanceCard } from "components";
- 
 import { WithdrawWrapper } from "features/payout/components";
 import { GeneralLayout } from "layouts";
 
