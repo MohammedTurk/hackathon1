@@ -6,7 +6,7 @@ import {
   PencilIconOutline,
 } from "lib/@heroicons";
 import   { ControlRecipient } from "../ControlRecipient";
-import { useModal } from "hooks";
+import { useToggle } from "hooks";
 import { Delete } from "../Delete";
 import { useSWRMutationHook } from "features/payout/hooks";
 import { API_SERVICES_URLS } from "data";
@@ -33,13 +33,13 @@ export const EditRecipient = ({
     isOpen: isOpenEditRecipient,
     closeModal: closeModalEditRecipient,
     openModal: openModalEditRecipient,
-  } = useModal();
+  } = useToggle();
  
   const {
     isOpen: isOpenDeleteRecipient,
     closeModal: closeModalDeleteRecipient,
     openModal: openModalDeleteRecipient,
-  } = useModal();
+  } = useToggle();
  
 
   const handleActive = (recipient) => {

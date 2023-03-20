@@ -23,6 +23,7 @@ export const FORM_VALIDATION = {
       value: 8,
       message: "Password must be at least 8 characters",
     },
+  
     pattern: {
       value: VALIDATION_RULES.password,
       message: "uppercase, lowercase, number and special",
@@ -80,6 +81,7 @@ export const FORM_VALIDATION = {
       value: VALIDATION_RULES.isNumber,
       message: "you can't withdraw cents in cash",
     },
+    
   },
   withdrawBankAmount: {
     required: "Amount is required",

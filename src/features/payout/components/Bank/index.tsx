@@ -1,27 +1,26 @@
 import { Button, Input, ItemSkeleton, Modal, SelectListBox } from "components";
 import BankOption from "components/BankOption";
 import { API_SERVICES_URLS, FORM_VALIDATION } from "data";
-import { useSWRHook, useSWRMutationHook } from "features/payout/hooks";
+import { useSWRHook } from "features/payout/hooks";
 import { WithdrawAmountType } from "features/payout/types";
-import { useModal } from "hooks";
+import { useToggle } from "hooks";
 import { PlusIconMini } from "lib/@heroicons";
 import React, { useEffect, useState } from "react";
 import useForm from "lib/react-hook-form";
 import { getFieldHelperText } from "utils";
-import { AddRecipient, ControlBankAccount } from "../popUp";
+import { AddRecipient, BankWithdrawPreview, ControlBankAccount } from "../popUp";
 import EditBanks from "../popUp/EditBanks";
 
 export const Bank = () => {
   const [bankList, setBankList] = useState([]);
   const [selectedBankFromEdit, setSelectedBankFromEdit] = useState();
-
+  const [BankSelectDetails, setBankSelectDetails] = useState();
+   
   const { responseData: bankListData ,isLoading } = useSWRHook(
     API_SERVICES_URLS.WITHDRAW.BANK_LIST,
     "get"
   );
-  // useEffect(() => {
-  //   getBankList();
-  // }, []);
+ 
 
   useEffect(() => {
     setBankList(bankListData);
@@ -30,25 +29,30 @@ export const Bank = () => {
     isOpen: isOpenModalAddBank,
     closeModal: closeModalAddBank,
     openModal: openModalAddBank,
-  } = useModal();
-
+  } = useToggle();
+  const {
+    isOpen: isOpenWithdrawBank,
+    closeModal: closeModalWithdrawBank,
+    openModal: openModalWithdrawBank,
+  } = useToggle();
   const {
     isOpen: isOpenModalEditBank,
     closeModal: closeModalEditBank,
     openModal: openModalEditBank,
-  } = useModal();
+  } = useToggle();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
+    getValues
   } = useForm<WithdrawAmountType>();
   const handleAmount = (value: number | string) => {
     setValue("amount", +value);
   };
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    openModalWithdrawBank()
   });
   return (
     <div className="">
@@ -98,10 +102,13 @@ export const Bank = () => {
                   </Button>
                 </span>
               }
-              error={!!errors.recipient}
-              // helperText={getFieldHelperText("error", errors.recipient?.message)}
+              
+              setValue ={setValue}
               OptionType={BankOption}
+              fieldName ="bankId"              
               selectedFromEdit={selectedBankFromEdit}
+              setSelectDetails={setBankSelectDetails}
+
             />
             <Button
               className="!bg-transparent !text-[#4375FF] hover:!bg-[#F3F6FF] flex items-center gap-1 !p-1 ml-auto"
@@ -123,6 +130,7 @@ export const Bank = () => {
       <Modal isOpen={isOpenModalAddBank} closeModal={closeModalAddBank}>
         <ControlBankAccount
           closeModal={closeModalAddBank}
+         
           setBankList={setBankList}
           precess="AddBank"
         />
@@ -136,6 +144,12 @@ export const Bank = () => {
           setBankList={setBankList}
         />
       </Modal>
+      <Modal
+          isOpen={isOpenWithdrawBank}
+          closeModal={closeModalWithdrawBank}
+        >
+          <BankWithdrawPreview amount={getValues("amount")} BankSelectDetails={BankSelectDetails}    closeModal={closeModalWithdrawBank}  />
+        </Modal>
     </div>
   );
 };

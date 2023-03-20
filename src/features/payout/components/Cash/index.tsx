@@ -1,6 +1,6 @@
 import {
   Button,
-  IconButton,
+  
   Input,
   ItemSkeleton,
   Modal,
@@ -15,9 +15,9 @@ import useForm from "lib/react-hook-form";
 import { getFieldHelperText } from "utils";
 import RecipientOption from "components/RecipientOption";
 import { PlusIconMini } from "lib/@heroicons";
-import { useModal } from "hooks";
+import { useToggle } from "hooks";
  
-import {  ControlRecipient,EditRecipient  } from "../popUp";
+import {  CashWithdrawPreview, ControlRecipient,EditRecipient  } from "../popUp";
  
 
 // import AddReciepient from "../popUp/addReciepient";
@@ -25,16 +25,24 @@ import {  ControlRecipient,EditRecipient  } from "../popUp";
 export const Cash = () => {
   const [recipientDataState ,setRecipientDataState] =useState([])
   const[selectedRecipientFromEdit ,setSelectedRecipientFromEdit] = useState()
+  const[RecipientDetails ,setRecipientDetails] = useState()
+  const[OfficeDetails ,setOfficeDetails] = useState()
+
   const {
     isOpen: isOpenAddRecipient,
     closeModal: closeModalAddRecipient,
     openModal: openModalAddRecipient,
-  } = useModal();
+  } = useToggle();
   const {
     isOpen: isOpenEditRecipient,
     closeModal: closeModalEditRecipient,
     openModal: openModalEditRecipient,
-  } = useModal();
+  } = useToggle();
+  const {
+    isOpen: isOpenWithdrawCash,
+    closeModal: closeModalWithdrawCash,
+    openModal: openModalWithdrawCash,
+  } = useToggle();
   const { responseData: OfficeData ,isLoading : isLoadingOffice} = useSWRHook(
     API_SERVICES_URLS.WITHDRAW.OFFICE_LIST,
     "get"
@@ -56,14 +64,15 @@ export const Cash = () => {
     formState: { errors },
     setValue,
     clearErrorOnChange,
-    control
+    control,
+    getValues
   } = useForm<WithdrawAmountType>();
   const handleAmount = (value: number | string) => {
     const beforeDecimal = Math.trunc(+value);
     setValue("amount", beforeDecimal);
   };
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    openModalWithdrawCash()
   });
   return (
     <div className="">
@@ -87,17 +96,20 @@ export const Cash = () => {
             id="amount"
             inputSize="large"
             type="number"
-            {...register("amount", FORM_VALIDATION.withdrawCashAmount)}
+            {...register("amount",   {...FORM_VALIDATION.withdrawCashAmount ,max:240}   )}
             error={!!errors.amount}
             helperText={getFieldHelperText("error", errors.amount?.message)}
           />
         </div>
 {isLoadingOffice ? <ItemSkeleton/>: <SelectListBox
           data={OfficeData}
-          label={"Office"}
-          error={!!errors.office}
-          helperText={getFieldHelperText("error", errors.office?.message)}
+          label="Office"
+    
+           
           OptionType={OfficeOption}
+          setValue ={setValue}
+          fieldName ="officeId"
+          setSelectDetails={setOfficeDetails}
         />}
         
 
@@ -120,6 +132,9 @@ export const Cash = () => {
           helperText={getFieldHelperText("error", errors.recipient?.message)}
           OptionType={RecipientOption}
           selectedFromEdit={selectedRecipientFromEdit}
+          setValue ={setValue}
+          fieldName ="recipientId"
+          setSelectDetails={setRecipientDetails}
 
         />
 
@@ -147,6 +162,12 @@ export const Cash = () => {
           closeModal={closeModalEditRecipient}
         >
           <EditRecipient RecipientsData={recipientDataState} setSelectedRecipient={setSelectedRecipientFromEdit} closeModal={closeModalEditRecipient} setRecipientDataState={setRecipientDataState}/>
+        </Modal>
+        <Modal
+          isOpen={isOpenWithdrawCash}
+          closeModal={closeModalWithdrawCash}
+        >
+          <CashWithdrawPreview amount={getValues("amount")} RecipientDetails={RecipientDetails}  OfficeDetails={OfficeDetails} closeModal={closeModalWithdrawCash}  />
         </Modal>
     </div>
   );

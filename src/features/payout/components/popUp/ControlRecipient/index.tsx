@@ -1,7 +1,7 @@
 import { Button, Card, Input, Modal, PhoneInput } from "components";
 import { API_SERVICES_URLS, FORM_VALIDATION } from "data";
 import { AddRecipientType } from "features/payout/types";
-import { useModal } from "hooks";
+import { useToggle } from "hooks";
 import { XMarkIconMini } from "lib/@heroicons";
 import useForm, { Controller } from "lib/react-hook-form";
 import { useEffect } from "react";
@@ -14,15 +14,15 @@ export const ControlRecipient = ({
   setRecipientData,
   recipientForEdit,
   precess = "AddRecipient",
-  closeCurrentModal
+ 
 }: {
   closeModal: () => void;
   setRecipientData: React.Dispatch<React.SetStateAction<never[]>>;
   precess: string;
-  closeCurrentModal: () => void;
+ 
   recipientForEdit : {}
 }) => {
-  const { isOpen, closeModal: closeModalOtp, openModal } = useModal();
+  const { isOpen, closeModal: closeModalOtp, openModal } = useToggle();
   const {
     register,
     handleSubmit,
@@ -53,7 +53,7 @@ export const ControlRecipient = ({
         </h3>
         <span
           className="h-5 w-5 cursor-pointer font-[700] "
-          onClick={closeCurrentModal}
+          onClick={closePrevModal}
         >
           <XMarkIconMini />
         </span>

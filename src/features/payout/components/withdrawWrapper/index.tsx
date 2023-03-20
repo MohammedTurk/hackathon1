@@ -6,7 +6,7 @@ import { XMarkIconMini } from "lib/@heroicons";
 import React, { useState } from "react";
 import Bank from "../Bank";
 import Cash from "../Cash";
- 
+
 export const WithdrawWrapper = () => {
   const [payMethod, setPayMethod] = useState("Cash");
   const handlePaymentMethod = (value: string) => {
@@ -42,6 +42,6 @@ export const WithdrawWrapper = () => {
       </RadioGroup>
       {payMethod === "Cash" ? <Cash /> : <Bank />}
     </Card>
-   );
+  );
 };
 export default WithdrawWrapper;
