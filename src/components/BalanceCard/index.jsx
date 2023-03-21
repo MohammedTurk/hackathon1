@@ -8,7 +8,13 @@ export const BalanceCard = () => {
   const {user} = useCurrentUser()
   const beforeDecimal = Math.trunc(user?.balance);
   var getDecimalVal = user?.balance.toString().indexOf(".");
-  var afterDecimal = user?.balance.toString().substring(getDecimalVal + 1);
+  var afterDecimal = user?.balance.toString().substring(getDecimalVal + 1) ;
+  
+  console.log(user?.balance);
+  console.log(getDecimalVal);
+  console.log(afterDecimal);
+ 
+
   const buttonClasses = {
     button:
       "!bg-[#F3F6FF] !text-[#4375FF] hover:!text-[#F3F6FF] hover:!bg-[#4375FF] flex items-center gap-1 sm:gap-2  ",

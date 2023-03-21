@@ -1,5 +1,5 @@
-import {   BalanceCard } from "components";
-import {   TransactionsWrapper } from "features/payout/components";
+import { BalanceCard } from "components";
+import { TransactionsWrapper } from "features/payout/components";
 import { GeneralLayout } from "layouts";
 
 export const Balance = () => {
